@@ -3,10 +3,45 @@ import { ScrollView, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { colors } from './ds/colors'
+import ExpandableSection from './ds/components/ExpandableSection'
+import Tag from './ds/components/Tag'
 import { Text } from './ds/components/Text'
 
 export const Screen1: React.FC<{}> = () => {
   const insets = useSafeAreaInsets()
+
+  const tags = [
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' },
+    { text: 'tag' }
+  ]
 
   return (
     <View
@@ -26,7 +61,17 @@ export const Screen1: React.FC<{}> = () => {
           paddingBottom: insets.bottom
         }}
       >
-        <Text typeface='H4'>Hello</Text>
+        <ExpandableSection title='Section 1'>
+          {tags.map((tag, index) => {
+            return (
+              <Tag
+                key={index}
+                text={`${tag.text} ${index}`}
+                onPress={() => alert(`Tag ${index} pressed`)}
+              />
+            )
+          })}
+        </ExpandableSection>
       </ScrollView>
     </View>
   )
